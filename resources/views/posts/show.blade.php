@@ -4,7 +4,7 @@
     <title>{{ $post->title }}</title>
 </head>
 <body>
-    <h1>{{ $post->title }}</h1>
+    <h2>{{ $post->title }}</h2>
     <p>{{ $post->content }}</p>
 
     <a href="/posts">Atpakaļ uz sarakstu</a>
