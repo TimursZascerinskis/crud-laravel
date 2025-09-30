@@ -10,7 +10,11 @@
 
     <ul>
         @foreach($posts as $post)
-            <li>{{ $post->title }}: {{ $post->content }}</li>
+            <li>
+                <strong>{{ $post->title }}</strong>: {{ $post->content }}
+                <br>
+                <a href="{{ url('/posts/' . $post->id) }}">Skatīt detaļas</a>
+            </li>
         @endforeach
     </ul>
 
