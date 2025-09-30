@@ -14,4 +14,22 @@ class PostController extends Controller
         'posts' => $posts
     ]); 
     }
+
+    public function create()
+    {
+         return view('posts.create');
+    }
+
+    public function store(Request $request)
+    {
+    $validated = $request->validate([
+        'title' => 'required|string',
+        'content' => 'required|string',
+    ]);
+
+    Post::create($validated);
+
+    return redirect('/posts');
+    }
+
 }

@@ -6,6 +6,8 @@
 <body>
     <h1>Visi posti</h1>
 
+    <a href="/posts/create">Izveidot jaunu postu</a>
+
     <ul>
         @foreach($posts as $post)
             <li>{{ $post->title }}: {{ $post->content }}</li>
