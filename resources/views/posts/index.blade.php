@@ -9,21 +9,23 @@
     <a href="/posts/create">Izveidot jaunu postu</a>
 
     <ul>
-    @foreach ($posts as $post)
+        @foreach ($posts as $post)
         <li>
-            <strong>{{ $post->title }}</strong>: {{ $post->content }}
-
-            <a href="{{ url('/posts/' . $post->id) }}">Skatīt detaļas</a>
+            <h2>{{ $post->title }}</h2>
+            content: {{ $post->content }} <br>
+            {{-- <a href="{{ url('/posts/' . $post->id) }}">Show</a> --}}
+            <form action="{{ url('/posts/' . $post->id) }}" style="display:inline;">
+                @csrf
+                <button type="submit">Show</button>
+            </form>
 
             <form action="{{ url('/posts/' . $post->id) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" onclick="return confirm('Tiešām dzēst šo postu?')">Dzēst</button>
+                <button type="submit">Destroy</button>
             </form>
         </li>
-    @endforeach
-</ul>
-
-
+        @endforeach
+    </ul>
 </body>
 </html>
